@@ -61,13 +61,13 @@ async function google(dork, ip, port) {
             if (link.indexOf("&") > 0) {
               let link_filtred = link.split("&")[0];
               fs.appendFile(
-                `./key/output/ResultValid_FILTRED.txt`,
+                `./key/ResultValid_FILTRED.txt`,
                 `${link_filtred}` + "\n",
                 () => {}
               );
             } else {
               fs.appendFile(
-                `./key/output/ResultValid.txt`,
+                `./key/ResultValid.txt`,
                 `${link}` + "\n",
                 () => {}
               );
@@ -75,22 +75,14 @@ async function google(dork, ip, port) {
           } else {
             ni++;
             console.log(`[N/PARAMS INJECTABLE] => ${link}`.yellow);
-            fs.appendFile(
-              `./key/output/NaoInjetavel.txt`,
-              `${link}` + "\n",
-              () => {}
-            );
+            fs.appendFile(`./key/NaoInjetavel.txt`, `${link}` + "\n", () => {});
           }
         } else {
           b++;
           console.log(`[BLACKLIST] => `.yellow + `${link}`.red);
-          fs.appendFile(
-            `./key/output/Blacklist.txt`,
-            `${link}` + "\n",
-            () => {}
-          );
+          fs.appendFile(`./key/Blacklist.txt`, `${link}` + "\n", () => {});
         }
-        fs.appendFile(`./key/output/Result.txt`, `${link}` + "\n", () => {});
+        fs.appendFile(`./key/Result.txt`, `${link}` + "\n", () => {});
       } else {
         i++;
         console.log("[URL INVALIDA] => ".yellow + link);
@@ -117,7 +109,7 @@ async function google(dork, ip, port) {
     console.log();
   } catch (e) {
     console.log("ERRO CONEXAO ENCERADA! :/".yellow);
-    fs.appendFile(`./key/output/ERROS.txt`, `${dork}` + "\n", () => {});
+    fs.appendFile(`./key/ERROS.txt`, `${dork}` + "\n", () => {});
   }
 }
 let min = 200;
